@@ -43,9 +43,10 @@ main {
 }
 
 .error {
+    top: 80px;
     color: rgb(222, 2, 2);
+    text-shadow: 0px 0px 15px rgba(255,255,255,0.4);
     padding: 10px;
-    margin-top: -20px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }

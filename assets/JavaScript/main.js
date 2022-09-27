@@ -116,11 +116,10 @@ const searchPokemon = async (e) => {
     let fetchedCount = await requestCount();
     //solucionar 0 a la izquierda   
     if (!pokemonInput) {
-        error.innerHTML = `<small class="error">Por favor, ingresa el numero de tu Pokemon!</small>`;
-        
+        showError(`<small class="error">Por favor, ingresa el numero de tu Pokemon!</small>`);
         return;
     } else if (pokemonInput > fetchedCount) {
-        error.innerHTML = `<small class="error">Todavia no llegamos a ese numero de pokemon!</small>`;
+        showError(`<small class="error">Todavia no llegamos a ese numero de Pokemon</small>`);
         form.reset();
         return;
     } 
@@ -133,6 +132,17 @@ const searchPokemon = async (e) => {
     form.reset();
     }
 
+// funcio para mostrar errores con temp
+const showError = (msg) => {
+
+    error.innerHTML = msg
+    
+    setTimeout(() => {
+        form.reset();
+        error.innerHTML = ''
+    }, 1800);
+    return
+}
 
     //Funcion para eliminar la card
 const removePokemon = e => {
