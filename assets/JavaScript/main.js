@@ -37,7 +37,7 @@ const saveToLocalStorage = pokemonCard => {
 
     // renderizar en el html, las propiedades de los movimientos elegidos al azar de cada pokemon
     const renderMovements = move => {
-        if(move.power = 'null') move.power = 0
+        if(!move.power) move.power = 0
 
         return `
         <span><img class="type-move" width="25px" src="./assets/img/type/${move.type.name}.png" alt="${move.type.name}"></span>
@@ -145,7 +145,7 @@ const removePokemon = e => {
 }
 
 
-// solucionar: al intentar renderizar antes del listener del form, da error, no se guarda el array y tampoco funca la funcion de remover la card.
+// solucionar: al intentar renderizar antes del listener del form, da error, no se guarda el array y tampoco funca la funcion de remover la card
 const init = () => {
     form.addEventListener('submit', searchPokemon);
     renderPokemon(pokemon);
