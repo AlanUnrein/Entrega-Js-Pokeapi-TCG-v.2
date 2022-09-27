@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100;300;400;700;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --amarillo : rgb(255, 190, 0);
+    --font: 'Lexend Mega', sans-serif;
+}
+
+main {
+    background-color: rgb(12, 15, 19);
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form {
+    padding: 30px;
+}
+
+#inputNumber {
+    background-color: transparent;
+    border: 5px solid;
+    border-image-slice: 1;
+    border-image-source: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 100%, #FDB931 100%, #9f7928 100%, #8A6E2F 100%, transparent 80%);
+    border-image-source: radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    color: white;
+    outline: none;
+    height: 50px;
+    padding: 5px;
+    text-align: center;
+}
+.submit{
+    height: 52px;
+    padding: 10px;
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+                
+}
+
+.error {
+    color: rgb(222, 2, 2);
+    padding: 10px;
+    margin-top: -20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/*  hacer borders degradados dorados */
+.card--container {
+    background-position: center;
+    filter: sepia(30%);
+
+    margin: 10px;
+    padding: 0px 30px;
+    width: 450px;
+    height: 650px;
+    border: 25px solid;
+    border-image-slice: 1;
+    border-image-source: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 100%, #FDB931 100%, #9f7928 100%, #8A6E2F 100%, transparent 80%);
+    border-image-source: radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    position: relative;
+    animation: opacity 1.3s;
+}
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
+
+
+.card--x {
+    font-size: 25px;
+    position: absolute;
+    top: -25px;
+    right: -25px;
+}
+.card--x:active {
+    color: white;
+    transition: .5s;
+}
+.card--x:hover {
+    transition: .5s;
+    text-shadow: 1px 1px 8px rgba(255,105,105,0.6);
+    color: rgb(159, 48, 48);
+}
+
+
+/* header del pokemon */
+.card--pokemon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.card--pokemon span {
+    
+    font-size: 14px;
+    font-family: var(--font);
+    font-weight: 700;
+    color: rgb(69, 69, 69);
+}
+.pokemon--name {
+    text-shadow: 1px 1px 8px rgba(255,255,255,0.6);
+    font-family: var(--font);
+    letter-spacing: -2px;
+    text-transform: capitalize;
+    font-weight: 900;
+    padding-top: 5px;
+}
+
+.type {
+    padding-top: 5px;
+    list-style: none;
+    display: flex;
+    gap: 5px;
+}
+
+/* Imagen y container */
+.card--img {
+    height: 320px;
+    border: 15px solid;
+    border-image-slice: 1;
+    border-image-source: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 100%, #FDB931 100%, #9f7928 100%, #8A6E2F 100%, transparent 80%);
+    border-image-source: radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    background-size: cover;
+}
+.card--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+/* propiedades */
+
+.pokemon--prop {
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    margin: 5px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.pokemon--prop ul{
+    font-family: var(--font);
+    letter-spacing: -1px;
+    font-size: 10px;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+}
+
+/* Movimientos */
+.pokemon--moves {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    position: relative;
+}
+.move  {
+    gap: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    position: relative;
+    
+}
+.move--name {
+    text-shadow: 1px 1px 8px rgba(255,255,255,0.6);
+    text-transform: capitalize;
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 700;
+}
+.move--effect {
+    font-size: 8px;
+    font-family: var(--font);
+}
+.move span{
+    text-shadow: 1px 1px 8px rgba(255,255,255,0.6);
+    font-family: var(--font);
+    font-weight: 900;
+    font-size: 20px;
+}
+.move span small {
+    font-size: 10px;
+}
+
+/* Habilidades */
+.pokemon--abilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+.pokemon--abilities h3 {
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    color: black;
+    font-family: var(--font);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 9px;
+    padding: 10px;
+}
+.abilities {
+    text-shadow: 1px 1px 8px rgba(255,255,255,0.6);
+    text-transform: capitalize;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 14px;
+
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+.number {
+    text-shadow: 1px 1px 8px rgba(255,255,255,0.6);
+    font-family: var(--font);
+    font-weight: 700;
+
+    position: absolute;
+    right: -25px;
+    bottom: -25px;
+    font-size: 18px;
+}
+
+.footer h3 {
+    font-size: 9px;
+}
+.footer p {
+    font-size: 9px;
+}
+.hidden {
+    display: none;
+}
