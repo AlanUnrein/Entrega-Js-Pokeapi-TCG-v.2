@@ -56,25 +56,25 @@ const saveToLocalStorage = pokemonCard => {
 
 // crea el HTML de la card
 const createHTML = pkm => {
-
-
+    const {order, stats, name, sprites, base_experience, height, weight, id} = pkm
+    
     return `
-    <i class="card--x fa-solid fa-circle-xmark" data-id="${pkm.order}"></i>
-         <section class="card--pokemon">
-            <span>HP ${pkm.stats[0].base_stat}</span>
-            <h1 class="pokemon--name">${pkm.name} </h1>
+        <i class="card--x fa-solid fa-circle-xmark" data-id="${order}"></i>
+        <section class="card--pokemon">
+            <span>HP ${stats[0].base_stat}</span>
+            <h1 class="pokemon--name">${name} </h1>
             <ul class="type">
             
             </ul>
         </section>
         <section class="card--img"> 
-            <img class="pokemon--img" src="${pkm.sprites.other["official-artwork"].front_default}" alt="${pkm.name}">
+            <img class="pokemon--img" src="${sprites.other["official-artwork"].front_default}" alt="${name}">
         </section>
         <section class="pokemon--prop">
             <ul>
-                <li>Base exp: ${pkm.base_experience}</li>
-                <li>Height: ${pkm.height/10}m</li>
-                <li>Weight: ${pkm.weight/10}kg</li>
+                <li>Base exp: ${base_experience}</li>
+                <li>Height: ${height/10}m</li>
+                <li>Weight: ${weight/10}kg</li>
             </ul>
         </section>
         <section class="pokemon--moves">
@@ -86,7 +86,7 @@ const createHTML = pkm => {
             <ul class="abilities">
             </ul>
         </section>
-        <span class="number">${pkm.id}<i class="fa-sharp fa-solid fa-star"></i></span>
+        <span class="number">${id}<i class="fa-sharp fa-solid fa-star"></i></span>
         <div class="footer">
             <h3>By Alan Unrein</h3>
             <p>© 1995, 96, 98 Nintendo Creatures, GAMEFREAK © 1999 Wizard.</p>
@@ -97,7 +97,8 @@ const createHTML = pkm => {
 
 // renderiza la logica del html
 const renderPokemon = pkm => {
-    error.innerHTML = '';
+// condicional para solventar bug, necesito explicacion
+    if (pkm.id) {
     cardContainer.innerHTML = createHTML(pkm);
     cardContainer.classList.remove('hidden')
     document.querySelector('.type').innerHTML = renderTypes(pkm);
@@ -105,6 +106,7 @@ const renderPokemon = pkm => {
     document.querySelector('.abilities').innerHTML = renderAbilities(pkm);
     renderBackground(pkm);
     renderBackImg(pkm);
+    } else return
 }
 
 
@@ -146,7 +148,7 @@ const showError = (msg) => {
 
     //Funcion para eliminar la card
 const removePokemon = e => {
-    if (e.target.classList.contains('card--x'));
+    if (!e.target.classList.contains('card--x')) return;
 
     cardContainer.classList.add('hidden');
     pokemon = [];
@@ -156,9 +158,13 @@ const removePokemon = e => {
 
 
 // solucionar: al intentar renderizar antes del listener del form, da error, no se guarda el array y tampoco funca la funcion de remover la card
+
+//solucionado aparantemente, poniendo un condicional a la funcion de renderPokemon para que retorne si no encuentra ningun pokemon en el array
+
+
 const init = () => {
-    form.addEventListener('submit', searchPokemon);
     renderPokemon(pokemon);
+    form.addEventListener('submit', searchPokemon);
     cardContainer.addEventListener('click', removePokemon)
 }
 
