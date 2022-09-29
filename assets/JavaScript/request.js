@@ -21,14 +21,25 @@ const requestCount = async () => {
 }
 
 const requestMove = async (pkm) => {
-    const baseURL = `https://pokeapi.co/api/v2/move/${pkm.moves[Math.floor(Math.random() * pkm.moves.length)].move.name}`;
-    const res = await fetch(baseURL);
-    const data = await res.json();
-    return data;
+    try {
+        const baseURL = `https://pokeapi.co/api/v2/move/${pkm.moves[Math.floor(Math.random() * pkm.moves.length)].move.name}`;
+        const res = await fetch(baseURL);
+        const data = await res.json();
+        return data;
+        
+    } catch (error) {
+        console.error('error, tal vez no hay movimientos para este pokemon');
+    }
+    
 }
 const requestMove2 = async (pkm) => {
-    const baseURL = `https://pokeapi.co/api/v2/move/${pkm.moves[Math.floor(Math.random() * pkm.moves.length)].move.name}`;
+    try {
+        const baseURL = `https://pokeapi.co/api/v2/move/${pkm.moves[Math.floor(Math.random() * pkm.moves.length)].move.name}`;
     const res = await fetch(baseURL);
     const data = await res.json();
     return data;
+    } catch (error) {
+        console.error('error, tal vez no hay movimientos para este pokemon');
+    }
+    
 }
