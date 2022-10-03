@@ -5,7 +5,7 @@ const requestPokemon = async pokemonID => {
         const data = await res.json();
         return data
     } catch (error) {
-        console.error('error de api')
+        return null;
     }
 }
 // traer la cantidad de pokemones actuales
@@ -16,10 +16,9 @@ const requestCount = async () => {
         const data = await res.json();
         return data.count
     } catch (error) {
-        console.error('error en la api');
+        return null;
     } 
 }
-
 
 
 // traer dos movimientos aleatorios, con su ataque y tipo, del total que posee el pokemon, para setear en su correspondiente lugar, 
