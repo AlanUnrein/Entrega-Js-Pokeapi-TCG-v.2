@@ -26,21 +26,21 @@ const saveToLocalStorage = pokemonCard => {
         cardContainer.style.backgroundImage = `url(./assets/img/back/${background}.jpg)`;
         return
     }
-    //render el backgroun de la img del pokemon 
+    //render el backgroun de la img del pokemon, toma el primer tipo del pkm y devuelve el background solo para ese tipo
     const renderBackImg = pkm => {
         const back = pkm.types.map(value => value.type.name).shift();
         document.querySelector('.card--img').style.backgroundImage = `url(./assets/img/backImg/${back}.png)`;
         return
     } 
-    const renderMove = async pkm => {
-        fetchedMove = await requestMove(pokemon);
-        fetchedMove2 = await requestMove2(pokemon);
+    
+    const renderMove = async pokemon => {
+        const fetchedMove = await requestMove(pokemon);
+        const fetchedMove2 = await requestMove2(pokemon);
         return document.querySelector('.move-1').innerHTML = renderMovements(fetchedMove), document.querySelector('.move-2').innerHTML = renderMovements(fetchedMove2)
     }
     // renderizar en el html, las propiedades de los movimientos elegidos al azar de cada pokemon
     const renderMovements = move => {
         if(!move.power) move.power = 0
-
         return `
         <span><img class="type-move" width="25px" src="./assets/img/type/${move.type.name}.png" alt="${move.type.name}"></span>
         <div>
@@ -60,7 +60,7 @@ const saveToLocalStorage = pokemonCard => {
                 <span>HP ${stats[0].base_stat}</span>
                 <h1 class="pokemon--name">${name} </h1>
                 <ul class="type">
-                
+                    ${renderTypes(pkm)}
                 </ul>
             </section>
             <section class="card--img"> 
@@ -80,6 +80,7 @@ const saveToLocalStorage = pokemonCard => {
             <section class="pokemon--abilities">
                 <h3>Abilities</h3>
                 <ul class="abilities">
+                    ${renderAbilities(pkm)}
                 </ul>
             </section>
             <span class="number">${id}<i class="fa-sharp fa-solid fa-star"></i></span>
@@ -96,9 +97,7 @@ const renderPokemon = pkm => {
     if (pkm.id) {
     cardContainer.innerHTML = createHTML(pkm);
     cardContainer.classList.remove('hidden')
-    document.querySelector('.type').innerHTML = renderTypes(pkm);
     renderMove(pkm)
-    document.querySelector('.abilities').innerHTML = renderAbilities(pkm);
     renderBackground(pkm);
     renderBackImg(pkm);
     } else return

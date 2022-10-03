@@ -51,6 +51,14 @@ main {
     letter-spacing: 2px;
 }
 
+.cards {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+
+
 /*  hacer borders degradados dorados */
 .card--container {
     background-position: center;

@@ -20,6 +20,9 @@ const requestCount = async () => {
     } 
 }
 
+
+
+// traer dos movimientos aleatorios, con su ataque y tipo, del total que posee el pokemon, para setear en su correspondiente lugar, 
 const requestMove = async (pkm) => {
     try {
         const baseURL = `https://pokeapi.co/api/v2/move/${pkm.moves[Math.floor(Math.random() * pkm.moves.length)].move.name}`;
