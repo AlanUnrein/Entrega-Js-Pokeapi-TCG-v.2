@@ -23,13 +23,14 @@ const saveToLocalStorage = pokemonCard => {
     }
     // renderizar en el html, las propiedades de los movimientos elegidos al azar de cada pokemon
     const renderMovements = move => {
-        if(!move.power) move.power = 0
+        const effect = move.effect_entries[0].short_effect.replace('$effect_chance%', '');
+        if(!move.power) move.power = '';
         return `
         <div class="move--container">
             <span><img class="type-move" width="25px" src="./assets/img/type/${move.type.name}.png" alt="${move.type.name}"></span>
             <div>
                 <h2 class="move--name">${move.name}</h2>
-                <p class="move--effect"> ${move.effect_entries[0].short_effect}</p>
+                <p class="move--effect"> ${effect}</p>
             </div>
         </div>    
         <span>${move.power}</span>`
@@ -95,7 +96,6 @@ const searchPokemon = async (e) => {
 
     let pokemonInput = inputNumber.value;
     let fetchedCount = await requestCount();
-    //solucionar 0 a la izquierda   
     const fetchedPokemon = await requestPokemon(pokemonInput); //objeto pkm
     pokemon = fetchedPokemon;
     
