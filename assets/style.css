@@ -89,13 +89,14 @@ main {
      letter-spacing: 2px;
 }
 .remove-all {
-     background-color: transparent;
+     background-color: rgb(231, 19, 19);
      color: rgb(174, 174, 174);
      font-size: 0.8rem;
      font-family: var(--font);
-     padding: 40px;
+     padding: 20px 30px;
+     margin: 5vh;
      transform: scaleX(1);
-     transition: all 0.5s;
+     transition: all 0.5s ease;
      cursor: pointer;
 }
 .remove-all:hover {
