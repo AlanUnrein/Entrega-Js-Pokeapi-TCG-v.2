@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Pokemon TCG</title>
-</head>
-<body>
-    <main>
-        <div class="error"></div>
-        <form class="form" id="form">
-            <input type="number" id="inputNumber" placeholder="Busca tu pokemon..." min="1" >
-            <input type="submit" value="Buscar" class="submit">
-        </form>
-        <div class="card--container">
-            <div class="card hidden"></div>
-        </div>
-    </main>
-    <script src="./assets/JavaScript/request.js"></script>
-    <script src="./assets/JavaScript/main.js"></script>
-</body>
+     <head>
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <link rel="stylesheet" href="./assets/style.css" />
+          <link
+               rel="stylesheet"
+               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+               integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+               crossorigin="anonymous"
+               referrerpolicy="no-referrer"
+          />
+          <title>Pokemon TCG</title>
+     </head>
+     <body>
+          <main>
+               <div class="error"></div>
+               <form class="form" id="form">
+                    <input
+                         type="number"
+                         id="inputNumber"
+                         placeholder="Busca tu pokemon..."
+                         min="1"
+                    />
+                    <input type="submit" value="Buscar" class="submit" />
+               </form>
+               <div class="card--container">
+                    <div class="card hidden"></div>
+               </div>
+               <button class="remove-all hidden">REMOVER TODAS</button>
+          </main>
+          <script src="./assets/JavaScript/request.js"></script>
+          <script src="./assets/JavaScript/main.js"></script>
+     </body>
 </html>
